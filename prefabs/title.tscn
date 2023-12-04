@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbqrrj1p6tgut"]
+
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_qsdk6"]
+[ext_resource type="Texture2D" uid="uid://cmppaumepuqmk" path="res://assets/LVUEnU.png" id="1_ylicq"]
+[ext_resource type="FontFile" uid="uid://buom53v88hfqb" path="res://assets/Rocky Roads/RevMiniPixel.ttf" id="2_jfwyp"]
+
+[sub_resource type="Theme" id="Theme_bcru8"]
+
+[node name="title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qsdk6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_ylicq")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/bg"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -75.0
+offset_right = 53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/bg/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/bg/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_jfwyp")
+text = "CHICA'S ADVENTURE"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start" type="Button" parent="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_bcru8")
+theme_override_fonts/font = ExtResource("2_jfwyp")
+text = "START GAME"
+
+[node name="exit" type="Button" parent="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_bcru8")
+theme_override_fonts/font = ExtResource("2_jfwyp")
+text = "EXIT GAME"
+
+[connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_start_pressed"]

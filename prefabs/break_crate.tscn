@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkp77rhajdd4d"]
+
+[ext_resource type="Texture2D" uid="uid://buyy10ogas1hb" path="res://assets/Rocky Roads/Objects/crate.png" id="1_fd4gh"]
+[ext_resource type="Script" path="res://scripts/break_crate.gd" id="1_nfo4p"]
+[ext_resource type="PackedScene" uid="uid://c1m3bwqknq7lx" path="res://prefabs/hitbox.tscn" id="3_71y6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2neh"]
+size = Vector2(15, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0shb5"]
+size = Vector2(16, 4)
+
+[node name="break-crate" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_nfo4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_y2neh")
+
+[node name="Crate" type="Sprite2D" parent="."]
+texture = ExtResource("1_fd4gh")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="hitbox" parent="." instance=ExtResource("3_71y6t")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+visible = false
+position = Vector2(1, 7)
+shape = SubResource("RectangleShape2D_0shb5")
