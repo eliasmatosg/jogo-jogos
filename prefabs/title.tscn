@@ -80,5 +80,5 @@ theme_override_fonts/font = ExtResource("2_jfwyp")
 text = "EXIT GAME"
 
 [connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/bg/MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
